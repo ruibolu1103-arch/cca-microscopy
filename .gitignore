@@ -1,0 +1,78 @@
+# Datasets and externally obtained models
+/data/
+/weights/
+/external/
+
+# Trained checkpoints are excluded from this repository
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Exclude image arrays; retain only the released count archive
+*.npy
+*.npz
+!/results/comir3seeds_tissuenet_rows.npz
+
+# Internal material
+/logs/
+/docs/
+/submission/
+/CLAUDE.md
+
+# Old and pilot results
+/results/_old_precision_bug/
+/results/pilot/
+
+# Python environments and caches
+.venv/
+.venv-*/
+venv/
+venv_*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+.vscode/
+.idea/
+
+# Local output and archives
+*.log
+*.jsonl
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tmp
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+/paper/main.pdf
+/paper/main_rev.pdf
+
+# OS metadata
+Thumbs.db
+.DS_Store
+
+# Manuscripts and generated PDF files are outside the release scope
+*.pdf
+/paper/main.tex
+/paper/refs.bib
+/paper/highlights.txt
+/paper/check_manuscript.py
+

@@ -1,0 +1,20 @@
+{
+ "params": {
+  "cca_trainable": 549251,
+  "cca_total": 87128963,
+  "comir": 329552,
+  "full_total": 91853017
+ },
+ "ms_per_pair": {
+  "cca_single/b1": 11.476888896140736,
+  "cca_single/b16": 4.378192769460536,
+  "cca_tta/b1": 45.58382220905818,
+  "cca_tta/b16": 17.575064084667247,
+  "comir/b1": 167.1098234995346,
+  "comir/b16": 12.133204145357013,
+  "full_segmenter/b1": 8.328547206474468,
+  "full_segmenter/b16": 6.8872029150952585,
+  "gated_mi/cpu1": 50.79287312400993
+ },
+ "gpu": "NVIDIA L40S"
+}

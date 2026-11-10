@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the accompanying manuscript and
+  the repository revision used in your work.
+type: software
+title: >-
+  CCA microscopy: Code for Align Before You Segment
+authors:
+  - family-names: Lu
+    given-names: Ruibo
+    affiliation: >-
+      School of Instrument Science and Technology,
+      Xi'an Jiaotong University
+repository-code: "https://github.com/ruibolu1103-arch/cca-microscopy"
+url: "https://github.com/ruibolu1103-arch/cca-microscopy"
+license: MIT
+abstract: >-
+  Research software for label-free cross-channel translation alignment
+  in multi-channel fluorescence microscopy. CCA combines coarse
+  correlation of frozen DINOv2 features with fine convolutional
+  correlation and is evaluated as a front end to fixed segmenters.
+  The accompanying manuscript is titled "Align Before You Segment:
+  Label-Free Cross-Channel Alignment for Multi-Channel Fluorescence
+  Microscopy" by Ruibo Lu.
+keywords:
+  - image registration
+  - fluorescence microscopy
+  - cross-channel alignment
+  - cell segmentation
+  - label-free learning
+  - DINOv2

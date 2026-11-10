@@ -1,0 +1,13 @@
+# Install PyTorch separately using the wheel for your hardware.
+# Recorded main environment: Python 3.13, PyTorch 2.7 (patch unknown).
+# Inferred direct dependencies; this is not the original environment lockfile.
+numpy
+scipy
+scikit-image
+Pillow
+safetensors
+matplotlib
+tifffile
+# Optional: huggingface_hub for backbone downloads; transformers for selftest.py.
+# Optional Cellpose-SAM: install cellpose in a separate environment.
+# CoMIR: obtain the upstream repository as described in README.md.
