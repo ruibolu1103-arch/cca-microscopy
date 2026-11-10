@@ -400,9 +400,9 @@ write("tableF1_markers.tex", "\n".join(["\\begin{tabular}{@{}lcccccc@{}}", "\\to
 
 
 # ------------------------------------------------------------------ figures
-def save(fig, name):
-    fig.savefig(os.path.join(FIG, name + ".pdf"), bbox_inches="tight", dpi=300)
-    fig.savefig(os.path.join(FIG, name + ".png"), bbox_inches="tight", dpi=300)
+def save(fig, name, dpi=300):
+    fig.savefig(os.path.join(FIG, name + ".pdf"), bbox_inches="tight", dpi=dpi)
+    fig.savefig(os.path.join(FIG, name + ".png"), bbox_inches="tight", dpi=dpi)
     plt.close(fig)
 
 
@@ -527,19 +527,22 @@ for r, (tag, rowname) in enumerate(ROWS):
         if r == 0:
             ax.set_title(colname, fontsize=8)
         if key == "input":
-            ax.imshow(composite(arr[f"{tag}_input"].astype(np.float32)))
+            ax.imshow(composite(arr[f"{tag}_input"].astype(np.float32)), interpolation="nearest")
             ax.set_ylabel(rowname, fontsize=7.5)
             ax.text(3, 218, f"{p['cells']} cells", color="w", fontsize=6.5, bbox=dict(fc="k", alpha=0.65, pad=1.2, lw=0))
             continue
         if f"{tag}_{key}_pred" not in arr:
             ax.text(0.5, 0.5, "identical to\nno alignment", ha="center", va="center", fontsize=7, transform=ax.transAxes, color="0.4")
             continue
-        ax.imshow(overlay(arr[f"{tag}_{key}_streams"].astype(np.float32), arr[f"{tag}_{key}_pred"], arr[f"{tag}_label"]))
+        ax.imshow(overlay(arr[f"{tag}_{key}_streams"].astype(np.float32), arr[f"{tag}_{key}_pred"], arr[f"{tag}_label"]),
+                  interpolation="nearest")
         mth = p["methods"][key]
         ax.text(3, 14, f"F1 {mth['inst_f1']:.1f}", color="w", fontsize=7, fontweight="bold", bbox=dict(fc="k", alpha=0.65, pad=1.2, lw=0))
         ax.text(3, 218, f"shift ({mth['shift'][0]}, {mth['shift'][1]})", color="w", fontsize=6.5, bbox=dict(fc="k", alpha=0.65, pad=1.2, lw=0))
 fig.subplots_adjust(wspace=0.03, hspace=0.06)
-save(fig, "fig5_qualitative")
+# 600 dpi with nearest-neighbour sampling: the paper scales this figure to the text width, and 300 dpi would
+# leave the embedded micrographs below the journal's 300 ppi minimum; pixels are replicated, not interpolated
+save(fig, "fig5_qualitative", dpi=600)
 
 
 # Fig. 2: method diagram (inch coordinates at the 5.4 in text width; thumbnails from TissueNet test image p1)
